@@ -1,0 +1,9 @@
+# This overrides the dependency tracker with the protobuf library file.
+set(ENV{PKG_CONFIG_PATH} "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
+find_package(FLANN REQUIRED)
+
+set(@PROJECT_NAME@_LIBRARIES ${FLANN_LIBRARIES})
+set(@PROJECT_NAME@_INCLUDE_DIRS ${FLANN_INCLUDE_DIR})
+
+list(APPEND @PROJECT_NAME@_TARGETS FLANN)
